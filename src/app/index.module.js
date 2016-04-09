@@ -18,5 +18,5 @@ angular.module('spajamF', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'n
   .service('githubContributor', GithubContributorService)
   .service('webDevTec', WebDevTecService)
   .controller('MainController', MainController)
-  .directive('acmeNavbar', NavbarDirective)
+  .directive('navbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective);
