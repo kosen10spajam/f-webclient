@@ -1,7 +1,7 @@
 $nav-bar-height: 56px;
 
 .nav-bar {
-  height: 56px;
+  height: $nav-bar-height;
   width: 100%;
   position: fixed;
   top: 0;
@@ -9,26 +9,10 @@ $nav-bar-height: 56px;
   border-bottom: 1px solid #d9d7d6;
 }
 
-.nav-bar-contents {
+.nav-bar-logo {
   height: 100%;
-  .nav-bar-logo {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .nav-bar-logo-img {
-      width: 120px;
-    }
-  }
-  .nav-bar-chat {
-    position: fixed;
-    right: 24px;
-    top: ($nav-bar-height - 30px) / 2;
+}
 
-    .nav-bar-chat-img {
-      width: 30px;
-      float: right;
-    }
-  }
+.nav-bar-logo-img {
+  width: 120px;
 }
