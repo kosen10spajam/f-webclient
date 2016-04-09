@@ -9,5 +9,5 @@ export function config ($logProvider, toastrConfig, RestangularProvider) {
   toastrConfig.positionClass = 'toast-top-right';
   toastrConfig.preventDuplicates = true;
   toastrConfig.progressBar = true;
-  RestangularProvider.setBaseUrl('http://52.196.87.79');
+  RestangularProvider.setBaseUrl('https://sonoba-api.herokuapp.com');
 }
