@@ -16,8 +16,10 @@ export class RoomController {
             'since': 0
           }).then((new_msg_data) => {
             console.log(new_msg_data.items);
-            if (this.items.length < new_msg_data.items.length){
-               this.items = new_msg_data.items;
+            if (this.items.length < new_msg_data.items.length) {
+              for(var i = this.items.length; i< new_msg_data.items.length; i++) {
+                this.items.push(new_msg_data.items[i]);
+              }
               this.scrollToBottom();
             }
           });
@@ -26,7 +28,7 @@ export class RoomController {
     });
   }
 
-  scrollToBottom(){
+  scrollToBottom() {
     $('body').delay(100).animate({
       scrollTop: $(document).height()
     }, 500);
