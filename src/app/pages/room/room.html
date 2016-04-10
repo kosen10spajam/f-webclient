@@ -1,13 +1,13 @@
-<div layout-fill>
+<div layout-fill class="chat-room">
   <section class="chat-area">
     <section class="chat-item" ng-repeat="item in room.items">
       <section class="chat-item-icon-container">
         <div class="chat-item-icon">
-          <img src="assets/images/{{item.animal}}.png" class="chat-animal-icon-img">
+          <img ng-src="assets/images/{{item.animal}}.png" class="chat-animal-icon-img">
         </div>
         <div class="chat-item-time-msg-container">
           <div class="chat-item-time">
-            20:00
+            {{room.transTime(item.time)}}
           </div>
           <div class="chat-item-message">
             {{item.message}}
@@ -16,7 +16,15 @@
       </section>
     </section>
   </section>
-  <section style="position: fixed; bottom: 0; width: 100%;">
-    <input type="text" style="width: 100%">
+  <section class="chat-send-message">
+    <div class="chat-user-icon">
+      <img ng-src="assets/images/{{room.user}}.png" class="chat-animal-icon-img">
+    </div>
+    <div class="chat-input-message">
+      <input type="text" ng-model="room.messageText">
+    </div>
+    <div class="chat-submit">
+      <button class="chat-submit-btn" ng-click="room.sendMessage()">Send</button>
+    </div>
   </section>
 </div>
