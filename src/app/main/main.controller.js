@@ -1,10 +1,11 @@
 export class MainController {
-  constructor(Restangular) {
+  constructor($location, Restangular) {
     'ngInject';
     this.Restangular = Restangular;
+    this.$location = $location;
 
     this.Restangular.one('rooms').get().then((data) => {
-      console.log(data);
+      this.$location.path('/chat-room/1');
     })
   }
 }
