@@ -1,0 +1,22 @@
+<div layout-fill>
+  <section class="chat-area">
+    <section class="chat-item" ng-repeat="item in room.items">
+      <section class="chat-item-icon-container">
+        <div class="chat-item-icon">
+          <img src="assets/images/{{item.animal}}.png" class="chat-animal-icon-img">
+        </div>
+        <div class="chat-item-time-msg-container">
+          <div class="chat-item-time">
+            20:00
+          </div>
+          <div class="chat-item-message">
+            {{item.message}}
+          </div>
+        </div>
+      </section>
+    </section>
+  </section>
+  <section style="position: fixed; bottom: 0; width: 100%;">
+    <input type="text" style="width: 100%">
+  </section>
+</div>
