@@ -3,6 +3,8 @@ export class RoomController {
     'ngInject';
     this.Restangular = Restangular;
     this.$interval = $interval;
+    this.stations = ['秋葉原', '神田', '東京', '有楽町', '新橋', '浜松町', '田町', '品川'];
+    this.stationIndex = 0;
     this.Restangular.one('rooms/1').post().then((data) => {
       this.user = data.animal;
       this.Restangular.one('rooms/1/messages').get({
@@ -17,13 +19,18 @@ export class RoomController {
           }).then((new_msg_data) => {
             console.log(new_msg_data.items);
             if (this.items.length < new_msg_data.items.length) {
-              for(var i = this.items.length; i< new_msg_data.items.length; i++) {
+              for (var i = this.items.length; i < new_msg_data.items.length; i++) {
                 this.items.push(new_msg_data.items[i]);
               }
               this.scrollToBottom();
             }
           });
-        }, 2000)
+        }, 2000);
+
+        this.incrementStationIndex = this.$interval(() => {
+          this.stationIndex += 1;
+          if (this.stationIndex >= this.stations.length) this.stationIndex = 0;
+        }, 120000)
       });
     });
   }
@@ -57,8 +64,12 @@ export class RoomController {
       this.Restangular.one('rooms/1/messages').get({
         'since': 0
       }).then((msg_data) => {
-        console.log(msg_data.items);
-        this.items = msg_data.items;
+        if (this.items.length < msg_data.items.length) {
+          for (var i = this.items.length; i < msg_data.items.length; i++) {
+            this.items.push(msg_data.items[i]);
+          }
+          this.scrollToBottom();
+        }
         $('body').delay(100).animate({
           scrollTop: $(document).height()
         }, 500);

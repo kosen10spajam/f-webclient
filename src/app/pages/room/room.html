@@ -1,4 +1,17 @@
 <div layout-fill class="chat-room">
+  <section class="next-stations-info">
+    <img src="/assets/images/train.png" class="train-img">
+    <img src="/assets/images/train.png" class="train-img">
+    <img src="/assets/images/arrow.png" class="arrow-img">
+    <div class="next-stations-label">
+      <span class="next-stations-station-name"> {{room.stations[room.stationIndex]}} </span>
+    </div>
+    <img src="/assets/images/arrow.png" class="arrow-img">
+    <div class="next-stations-label">
+      <span class="next-stations-station-name"> {{room.stations[room.stationIndex+1]}} </span>
+    </div>
+
+  </section>
   <section class="chat-area">
     <section class="chat-item" ng-repeat="item in room.items">
       <section class="chat-item-icon-container">
